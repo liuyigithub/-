@@ -81,6 +81,9 @@ class Logins extends Component {
         }
        
     }
+    componentDidMount(){
+        this.props.changTitle("我的")
+    }
 	
 }
 
@@ -140,7 +143,13 @@ var Login=connect(
 					type:'CHANGE_TXT',
 					txt:res
 				})
-			}			
+            },
+            changTitle:function(data){
+                dispatch({
+                    type:"CHANGETITLE",
+                    data:data
+                })
+            }			
 		}
 	}
 )(Logins)

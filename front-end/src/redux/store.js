@@ -10,7 +10,8 @@ var state={
     comingsoonfilms:[],
     filmteails:{},
     listTodoCinema:[],
-    txt:""
+    txt:"",
+    title:"卖座电影"
 }
 var store=createStore(reducer,state);
 

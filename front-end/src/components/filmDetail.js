@@ -53,8 +53,10 @@ class FilmDetails extends Component {
         $.get('http://localhost:8080/film-detail?id=' + id, function (res) {
             // console.log(JSON.parse(res));
             var dataObj=JSON.parse(res).data.film;
-            // console.log(dataObj);
+            console.log(dataObj);
             that.props.changeFilmDetail(dataObj); 
+            that.props.changTitle(dataObj.name); 
+            
         //    console.log( that.props.todofilms) 
         })
         
@@ -64,6 +66,7 @@ class FilmDetails extends Component {
 }
 var FilmDetail=connect(
 	function (state, ownProps) {
+        console.log(state)
         return {
             todofilms:state.filmteails
         }
@@ -75,7 +78,13 @@ var FilmDetail=connect(
 					type:'CHANGE_FILMDETAIL',
 					datafilms:datafilms
 				})
-			}			
+            },
+            changTitle:function(data){
+                dispatch({
+                    type:"CHANGETITLE",
+                    data:data
+                })
+            }				
 		}
 	}
 )(FilmDetails)

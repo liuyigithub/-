@@ -25,7 +25,9 @@ class Movielists extends Component {
             </Router>
 		);
 	}
-
+    componentDidMount(){
+        this.props.changTitle("卖座电影")
+    }
 	
 }
 var Movielist=connect(
@@ -33,6 +35,16 @@ var Movielist=connect(
 		return {
 			
 		}
-	}
+    },
+    function(dispatch,ownProps){
+        return {
+            changTitle:function(data){
+                dispatch({
+                    type:"CHANGETITLE",
+                    data:data
+                })
+            }
+        }
+    }
 )(Movielists)
 export default Movielist;

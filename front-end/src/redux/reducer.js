@@ -33,7 +33,11 @@ function reducer(state,action){
         case 'CHANGE_TXT':
             return Object.assign({},state,{
                 txt:action.txt
-            });            
+            });
+        case "CHANGETITLE": 
+            return Object.assign({},state,{
+                title:action.data
+            });        
         default:
             return state;  
     }

@@ -17,6 +17,9 @@ class Homepages extends Component {
             </div>
 		);
 	}
+	componentDidMount(){
+		this.props.changTitle("卖座电影");
+	}
 
 	
 }
@@ -24,6 +27,16 @@ var Homepage=connect(
 	function(state,ownProps){
 		return {
 			
+		}
+	},
+	function(dispatch){
+		return{
+			 changTitle:function(data){
+                dispatch({
+                    type:"CHANGETITLE",
+                    data:data
+                })
+            }		
 		}
 	}
 )(Homepages)

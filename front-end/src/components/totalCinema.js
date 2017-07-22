@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {render} from 'react-dom';
 import $ from 'jquery';
 import { Accordion, List } from 'antd-mobile';
-
+import GotoTop from './gotoTop.js';
 class TotalCinemas extends Component {
     onChange = (key) => {
         console.log(key);
@@ -49,13 +49,14 @@ class TotalCinemas extends Component {
                                 </Accordion.Panel>)
                     })
                 }
-                                       
+              <GotoTop></GotoTop>                       
             </Accordion>            
 		);
 	}
 
     componentDidMount() {
         var that=this;
+        that.props.changTitle("全部影院");
         $.get('http://localhost:8080/cinema', function (res) {
             // console.log(JSON.parse(res));
             var cinemaArr=JSON.parse(res).data.cinemas;
@@ -80,7 +81,13 @@ var TotalCinema=connect(
 					type:'CHANGE_CINEMA',
 					cinemaLists:cinemaLists
 				})
-			}			
+            },
+            changTitle:function(data){
+                dispatch({
+                    type:"CHANGETITLE",
+                    data:data
+                })
+            }		
 		}
 	}
 )(TotalCinemas)

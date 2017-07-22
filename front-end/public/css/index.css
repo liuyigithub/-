@@ -8,7 +8,6 @@ html, body {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  /* asd */
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -56,7 +55,7 @@ main header h1 .h1-left i {
   font-size: 0.8rem;
 }
 main header h1 .h1-right {
-  width: 7.5rem;
+  min-width: 7.5rem;
   padding: 0 0.8rem;
   font-size: 0.7rem;
   color: #efefef;

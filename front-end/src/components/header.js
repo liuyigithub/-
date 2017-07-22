@@ -45,7 +45,7 @@ class Headers extends Component {
                             <div className="h1-left">
                                 <i className="iconfont">&#xe655;</i>
                             </div>
-                            <div className="h1-right">卖座电影</div>
+                            <div className="h1-right">{this.props.titless}</div>
                         </h1>
                         <div className="header-right">
                             <a href="#" className="left-a">
@@ -83,7 +83,7 @@ class Headers extends Component {
 var Header = connect(
     function (state, ownProps) {
         return {
-
+            titless:state.title
         }
     }
 )(Headers);

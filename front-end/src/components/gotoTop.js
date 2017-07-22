@@ -19,9 +19,6 @@ class GotoTops extends Component {
 	
 }
 
-
-
-
 var GotoTop=connect(
 	function(state,ownProps){
 		return {
